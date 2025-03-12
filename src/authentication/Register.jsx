@@ -50,6 +50,10 @@ const Register = () => {
                 <FaGoogle className={scss.google} />
                 Continue with Google
               </button>
+              <button>
+                <FaFacebookF className={scss.facebook} />
+                Continue with Facebook
+              </button>
             </div>
           </div>
         </div>

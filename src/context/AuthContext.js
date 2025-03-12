@@ -2,6 +2,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { auth } from "../firebase/FireBase";
@@ -48,9 +49,14 @@ const AuthContext = ({ children }) => {
     getUser();
   }, []);
 
+  function logOutUser() {
+    return signOut(auth);
+  }
+
   const values = {
     signInWithGoogle,
     user: state.user,
+    logOutUser,
   };
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };

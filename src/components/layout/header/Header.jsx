@@ -9,7 +9,7 @@ import { GrHomeRounded } from "react-icons/gr";
 import { useAuth } from "../../../context/AuthContext";
 
 const Header = () => {
-  const { user } = useAuth();
+  const { user, logOutUser } = useAuth();
   const navigate = useNavigate();
   return (
     <header id={scss.header}>
@@ -43,6 +43,11 @@ const Header = () => {
                   onClick={() => navigate("/register")}
                   className={scss.icon_h1}
                 />
+              )}
+              {user ? (
+                <button onClick={() => logOutUser()}>Log Out</button>
+              ) : (
+                ""
               )}
             </div>
           </div>

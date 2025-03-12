@@ -1,0 +1,66 @@
+#header {
+  background: #bfe6d084;
+  -webkit-box-shadow: 1px 6px 8px 0px rgba(21, 22, 22, 0.2);
+  -moz-box-shadow: 1px 6px 8px 0px rgba(21, 22, 22, 0.2);
+  box-shadow: 1px 6px 8px 0px rgba(21, 22, 22, 0.2);
+}
+
+.partOne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 20px;
+  .logo_top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .logo {
+      color: rgb(171, 171, 70);
+      font-size: 30px;
+    }
+    h1 {
+      color: rgb(75, 139, 59);
+      font-size: clamp(1.25rem, 1.042rem + 1.04vw, 1.875rem);
+    }
+  }
+  p {
+    background: #bfe6d056;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 50px;
+    color: rgb(197, 197, 34);
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    -webkit-box-shadow: -7px -5px 17px -3px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: -7px -5px 17px -3px rgba(34, 60, 80, 0.6);
+    box-shadow: -7px -5px 17px -3px rgba(34, 60, 80, 0.6);
+    transition: 0.8s;
+  }
+  p:hover {
+    transform: scale(1.1);
+    -webkit-box-shadow: 5px 12px 22px -7px rgba(236, 244, 37, 0.6);
+    -moz-box-shadow: 5px 12px 22px -7px rgba(236, 244, 37, 0.6);
+    box-shadow: 5px 12px 22px -7px rgba(236, 244, 37, 0.6);
+  }
+  .h_icon {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    font-size: 28px;
+    color: rgb(171, 171, 70);
+    .icon_h0 {
+      font-size: 23px;
+      color: rgb(92, 26, 26);
+    }
+    .icon_h2 {
+      margin-top: 5px;
+      color: rgb(101, 164, 85);
+    }
+    .icon_h3 {
+      font-size: 33px;
+      color: rgb(13, 101, 202);
+    }
+  }
+}

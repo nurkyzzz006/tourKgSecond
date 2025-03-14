@@ -1,6 +1,8 @@
 import {
+  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -18,7 +20,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "GET_USER":
       return { ...state, user: action.payload };
-
+    case "ERROR":
+      return { ...state, error: action.payload };
     default:
       return state;
   }
@@ -53,10 +56,33 @@ const AuthContext = ({ children }) => {
     return signOut(auth);
   }
 
+  async function register(email, password) {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      dispatch({
+        type: "ERROR",
+        payload: error.message,
+      });
+    }
+  }
+
+  async function logIn(email, password) {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   const values = {
     signInWithGoogle,
+    register,
     user: state.user,
+    error: state.error,
+
     logOutUser,
+    logIn,
   };
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };

@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import scss from "./Register.module.scss";
-import { TextField } from "@mui/material";
+import { Alert, TextField } from "@mui/material";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const { signInWithGoogle } = useAuth();
+  const { signInWithGoogle, register, error } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   return (
     <div id={scss.register}>
       <div className="container">
         <div className={scss.content}>
           <div className={scss.block}>
             <div className={scss.zag}>
-              <h1>Login</h1>
+              <h1 onClick={() => navigate("/login")}>Login</h1>
               <span>|</span>
               <h1>Register</h1>
             </div>
+            {error && <Alert severity="error">{error}</Alert>}
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus
               similique quo vel abhhf Lorem ipsum dolor sit amet consectetur,
@@ -24,6 +29,7 @@ const Register = () => {
             </p>
             <div className={scss.login}>
               <TextField
+                onChange={(e) => setEmail(e.target.value)}
                 sx={{ heigth: "20px" }}
                 id="outlined-basic"
                 label="Mail@gmail.com"
@@ -31,13 +37,16 @@ const Register = () => {
                 className={scss.input}
               />
               <TextField
+                onChange={(e) => setPassword(e.target.value)}
                 style={{ heigth: "5px" }}
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
                 className={scss.input}
               />
-              <button>login</button>
+              <button onClick={() => register(email, password)}>
+                Register
+              </button>
             </div>
 
             <div className={scss.withGoogle}>

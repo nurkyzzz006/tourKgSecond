@@ -1,0 +1,128 @@
+#login {
+  min-height: 100vh;
+  background: rgb(204, 224, 204);
+}
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+.block {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 36px;
+  .zag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  p {
+    font-size: 11px;
+    letter-spacing: 0.3px;
+  }
+  h1 {
+    font-size: 23px;
+    font-weight: 500;
+    transition: 1s;
+  }
+  h1:nth-child(1) {
+    color: #000;
+    span {
+      color: #000;
+      font-size: 20px;
+    }
+  }
+  h1:nth-child(2) {
+    color: rgb(23, 86, 149);
+  }
+  h1:focus {
+    color: green;
+  }
+  h1:hover {
+    color: green;
+    transform: scale(1.1);
+  }
+
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .input {
+      width: 380px;
+    }
+    button {
+      width: 370px;
+      padding: 7px;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.8px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      background: rgb(3, 103, 3);
+    }
+  }
+  .line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    p {
+      font-size: 14px;
+    }
+    .lines {
+      width: 170px;
+      height: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0000002f;
+    }
+  }
+  .withGoogle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .google {
+      color: blue;
+      font-size: 20px;
+    }
+    .facebook {
+      color: rgb(13, 13, 98);
+      font-size: 20px;
+    }
+  }
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 370px;
+    padding: 7px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    border-radius: 5px;
+    border: 0.5px solid;
+    color: black;
+    background: white;
+    font-weight: 500;
+    font-size: 13px;
+    transition: 0.8s;
+  }
+  button:hover {
+    transform: scale(1.05);
+  }
+}

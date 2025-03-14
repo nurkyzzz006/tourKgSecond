@@ -9,6 +9,7 @@ import AddTravel from "../components/layout/crud/AddTravel";
 import ListTravel from "../components/layout/crud/ListTravel";
 import Home from "../components/layout/products/Home";
 import OneProduct from "../components/layout/products/feedback/OneProduct";
+import EditTravel from "../components/layout/crud/EditTravel";
 
 const TravelRoutes = () => {
   const routes = [
@@ -52,7 +53,11 @@ const TravelRoutes = () => {
       element: <OneProduct />,
       id: 8,
     },
-   
+    {
+      link: "/edit/:id",
+      element: <EditTravel/>,
+      id: 9,
+    },
   ];
   return (
     <Routes>

@@ -1,12 +1,35 @@
-.coment{
+#coment {
+  background: #00000014;
+  min-height: 100vh;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+
+  .block {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: red;
+    background: rgba(200, 193, 201, 0.331);
     width: 100%;
-    max-width: 600px;
-    margin-inline: auto;
-    padding-block: 20px;
-    
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 40px;
+    gap: 15px;
+
+    h2 {
+      color: rgba(28, 100, 25, 0.959);
+    }
+    button {
+      padding: 7px 30px;
+      border: none;
+      color: white;
+      font-weight: 600;
+      border-radius: 5px;
+      background: rgba(28, 100, 25, 0.959);
+    }
+  }
 }

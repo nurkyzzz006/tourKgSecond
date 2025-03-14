@@ -1,37 +1,80 @@
-.box {
+.otzyv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.blocks {
+  margin-block: 40px;
+  width: 900px;
+  // max-height: 500px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  input{
-    width: 100px;
-    margin-inline: auto;
-  }
-}
-.card{
+  border-radius: 20px;
+  padding: 40px;
+  gap: 40px;
+  -webkit-box-shadow: 1px 4px 13px 13px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 1px 4px 13px 13px rgba(34, 60, 80, 0.2);
+  box-shadow: 1px 4px 13px 13px rgba(34, 60, 80, 0.2);
+  display: flex;
+
+  .block {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      width: 370px;
-      padding: 7px;
-      font-weight: 600;
-      font-size: 18px;
-      letter-spacing: 0.8px;
-      border-radius: 5px;
-      border: 0.5px solid;
-      color: black;
-      background: white;
-      font-weight: 500;
-      font-size: 13px;
-      transition: 0.8s;
+    flex-wrap: wrap;
+
+    gap: 30px;
+  }
+
+  .box {
+    display: flex;
+    max-width: 800px;
+    max-height: 400px;
+    // background: rgb(185, 228, 246);
+border: 1px black solid;
+    padding: 10px;
+  }
+  input {
+    width: 100px;
+    max-height: 400px;
+    padding-inline: auto;
+    padding: 5px;
+  }
+}
+.card {
+  display: flex;
+  align-items: start;
+  text-align: start;
+  width: 800px;
+  justify-content: space-between;
+  align-items: center;
+
+  .text {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: white;
+
+    p {
+      line-height: 20px;
     }
   }
-  // button:hover {
-  //   transform: scale(1.05);
-// }
+  .btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   height: 130px;
+    button{
+      background: white;
+      border: none;
+      
+    }
+  }
+}
+.btn button:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+
+}

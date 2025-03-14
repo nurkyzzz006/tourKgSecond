@@ -4,15 +4,21 @@ import { useData } from "../../../context/TravelContext";
 
 import { IoSearch } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import Pages from "../products/pagination/Pages";
 const ListTravel = () => {
+  const { filterProduct } = useData();
   const navigate = useNavigate();
-  const { searchMas, deleteTravel, readTravel, data, getMoreProduct } =
-    useData();
+  const {
+    searchMas,
+    deleteTravel,
+    readTravel,
+    data,
+    getMoreProduct,
+  } = useData();
 
   useEffect(() => {
     readTravel();
   }, []);
+
   return (
     <div id={scss.ListTravel}>
       <div className="container">
@@ -25,28 +31,28 @@ const ListTravel = () => {
         </div>
         <div className={scss.manip}>
           <div className={scss.filters}>
-            <button>
+            <button onClick={(e) => filterProduct(e.target.value)}>
               <li>Бишкек</li>
             </button>
-            <button>
+            <button onClick={(e) => filterProduct(e.target.value)}>
               <li>Чуй</li>
             </button>
-            <button>
+            <button onClick={(e) => filterProduct(e.target.value)}>
               <li>Нарын</li>
             </button>
-            <button>
+            <button onClick={(e) => filterProduct(e.target.value)}>
               <li>Талас</li>
             </button>
-            <button>
+            <button onClick={(e) => filterProduct(e.target.value)}>
               <li>Жалал-Абад</li>
             </button>
-            <button>
+            <button onClick={(e) => filterProduct(e.target.value)}>
               <li>Ош</li>
             </button>
-            <button>
+            <button onClick={(e) => filterProduct(e.target.value)}>
               <li>Ыссык-Кол</li>
             </button>
-            <button>
+            <button onClick={(e) => filterProduct(e.target.value)}>
               <li>Баткен</li>
             </button>
           </div>
@@ -66,17 +72,17 @@ const ListTravel = () => {
                 Learn More
               </button>
               <div className={scss.btns}>
-                <button>edit</button>
+                <button onClick={() => navigate(`/edit/${item._id}`)}>
+                  edit
+                </button>
                 <button onClick={() => deleteTravel(item._id)}>delete</button>
               </div>
             </div>
           ))}
         </div>
       </div>
-
     </div>
-    
-    );
+  );
 };
 
 export default ListTravel;

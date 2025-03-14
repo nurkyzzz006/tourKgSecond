@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import scss from "./ListComent.module.scss";
-
+import { FaPen } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useData } from "../../../../context/TravelContext";
+import { MdDelete } from "react-icons/md";
 
 const ListComents = () => {
   const { data, searchTravel, readProduct, deleteProduct } = useData();
@@ -28,27 +29,45 @@ const ListComents = () => {
   };
 
   return (
-    <>
-      <input type="search" onChange={(e) => searchTravel(e.target.value)} />
-      {data.length > 0 ? (
-        data.map((item) => (
-          <div className={scss.box} key={item._id}>
-            <div className={scss.card}>
-              <StyledWrapper>
-                <div className="rating">{renderStars(item.rate)}</div>
-              </StyledWrapper>
-              <p>{item.message}</p>
-              <button onClick={() => navigate(`/edit/${item._id}`)}>
-                edit
-              </button>
-              <button onClick={() => deleteProduct(item._id)}>delete</button>
-            </div>
-          </div>
-        ))
-      ) : (
-        <h1>loading</h1>
-      )}
-    </>
+    <div div className={scss.otzyv}>
+      <div className={scss.blocks}>
+        <input
+          className={scss.search}
+          type="search"
+          onChange={(e) => searchTravel(e.target.value)}
+          placeholder="Search"
+        />
+        <div className={scss.block}>
+          {data.length > 0 ? (
+            data.map((item) => (
+              <div className={scss.box} key={item._id}>
+                <div className={scss.card}>
+                  <StyledWrapper>
+                    <div className={scss.text}>
+                      <div className="rating">{renderStars(item.rate)}</div>
+                      <p>{item.message}</p>
+                    </div>
+                  </StyledWrapper>
+                  <div className={scss.btn}>
+                    <button onClick={() => navigate(`/edit/${item._id}`)}>
+                      <FaPen />
+                    </button>
+                    <button
+                     
+                      onClick={() => deleteProduct(item._id)}
+                    >
+                      <MdDelete />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <h1>loading</h1>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 

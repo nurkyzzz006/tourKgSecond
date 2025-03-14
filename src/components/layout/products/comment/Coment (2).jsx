@@ -25,57 +25,60 @@ const Coment = () => {
     setRes(initialValue);
   }
   return (
-    <section className={scss.coment}>
+    <section id={scss.coment}>
       <div className="container">
-        <div className={scss.coment}>
-          <StyledWrapper>
-            <div className="rating">
-              <input
-                defaultValue={5}
-                onChange={(e) => givStar(e)}
-                name="rate"
-                id="star5"
-                type="radio"
-              />
-              <label title="text" htmlFor="star5" />
-              <input
-                defaultValue={4}
-                onChange={(e) => givStar(e)}
-                name="rate"
-                id="star4"
-                type="radio"
-              />
-              <label title="text" htmlFor="star4" />
-              <input
-                defaultValue={3}
-                onChange={(e) => givStar(e)}
-                name="rate"
-                id="star3"
-                type="radio"
-              />
-              <label title="text" htmlFor="star3" />
-              <input
-                defaultValue={2}
-                onChange={(e) => givStar(e)}
-                name="rate"
-                id="star2"
-                type="radio"
-              />
-              <label title="text" htmlFor="star2" />
-              <input
-                defaultValue={1}
-                onChange={(e) => givStar(e)}
-                name="rate"
-                id="star1"
-                type="radio"
-              />
-              <label title="text" htmlFor="star1" />
-            </div>
-          </StyledWrapper>
-          <input onChange={(e) => givStar(e)} name="message" type="text" />
-          <Link to="/feed">
-            <button onClick={resStar}>send</button>
-          </Link>
+        <div className={scss.content}>
+          <div className={scss.block}>
+            <h2>Оцените вашу поездку!</h2>
+            <StyledWrapper>
+              <div className="rating">
+                <input
+                  defaultValue={5}
+                  onChange={(e) => givStar(e)}
+                  name="rate"
+                  id="star5"
+                  type="radio"
+                />
+                <label title="text" htmlFor="star5" />
+                <input
+                  defaultValue={4}
+                  onChange={(e) => givStar(e)}
+                  name="rate"
+                  id="star4"
+                  type="radio"
+                />
+                <label title="text" htmlFor="star4" />
+                <input
+                  defaultValue={3}
+                  onChange={(e) => givStar(e)}
+                  name="rate"
+                  id="star3"
+                  type="radio"
+                />
+                <label title="text" htmlFor="star3" />
+                <input
+                  defaultValue={2}
+                  onChange={(e) => givStar(e)}
+                  name="rate"
+                  id="star2"
+                  type="radio"
+                />
+                <label title="text" htmlFor="star2" />
+                <input
+                  defaultValue={1}
+                  onChange={(e) => givStar(e)}
+                  name="rate"
+                  id="star1"
+                  type="radio"
+                />
+                <label title="text" htmlFor="star1" />
+              </div>
+            </StyledWrapper>
+            <input onChange={(e) => givStar(e)} name="message" type="text" />
+            <Link to="/feed">
+              <button onClick={resStar}>send</button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

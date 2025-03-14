@@ -8,6 +8,7 @@ const initialState = {
   data: [],
   fullData: [], // Храним все данные без фильтрации
   moreProd: [],
+  oneProd: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,7 +20,7 @@ const reducer = (state = initialState, action) => {
     case "GET_MORE":
       return { ...state, moreProd: [action.payload] };
     case "GET_ONE":
-      return { ...state, data: action.payload };
+      return { ...state, oneProd: action.payload };
     default:
       return state;
   }
@@ -125,14 +126,14 @@ const TravelContext = ({ children }) => {
       payload: data.data,
     });
   }
-  async function editTravel(id, editTravel) {
-    delete editTravel._id;
-    await axios.patch(`${API_TRAVEL}/${id}`, editTravel);
+  async function editTravel(id, editedTravel) {
+    delete editedTravel._id;
+    await axios.patch(`${API_TRAVEL}/${id}`, editedTravel);
+    readProduct();
   }
-
   //upDate //? Travel
 
-  //! pagination 
+  //! pagination
 
   //!
   const [page, setPage] = useState(1);
@@ -144,7 +145,28 @@ const TravelContext = ({ children }) => {
     let end = start + itemPerPages;
     return state.data.slice(start, end);
   }
+
+  function filterProduct(value) {
+    if (value === "all") {
+      dispatch({
+        type: "FILTER",
+        payload: state.data, // Возвращаем полный список товаров
+      });
+    } else {
+      let result = state.data.filter(
+        (item) => item.category.toLowerCase() === value
+      );
+      dispatch({
+        type: "FILTER",
+        payload: result,
+      });
+    }
+  }
+
   const values = {
+    oneProd: state.oneProd,
+
+    filterProduct,
     addTravel,
     data: state.data,
     readTravel,
@@ -152,10 +174,10 @@ const TravelContext = ({ children }) => {
     editTravel,
     getOneTravel,
     searchMas,
-    moreProd:state.moreProd,
+    moreProd: state.moreProd,
     //!
     addProduct,
-    data: state.data,
+
     readProduct,
     deleteProduct,
     editProduct,

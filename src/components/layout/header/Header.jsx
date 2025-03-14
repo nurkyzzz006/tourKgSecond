@@ -5,7 +5,7 @@ import { FaMessage } from "react-icons/fa6";
 import { IoIosHelpCircle } from "react-icons/io";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { GrHomeRounded } from "react-icons/gr";
+
 import { useAuth } from "../../../context/AuthContext";
 import { FaUserCircle } from "react-icons/fa";
 import { IconButton, Menu, MenuItem } from "@mui/material";
@@ -31,20 +31,26 @@ const Header = () => {
               <FaMapMarkedAlt className={scss.logo} />
               <h1>N_515</h1>
             </div>
-            <p onClick={() => navigate("/feed")}>Туристичиская компания</p>
+            <p>Туристичиская компания</p>
             <div className={scss.h_icon}>
-              <a onClick={() => navigate("/")} className={scss.icon_h0}>Home</a>
-
-              <a
-                onClick={() => navigate("/coment")}
-                className={scss.icon_h2}
-              >
-                Coment
+              <a onClick={() => navigate("/")} className={scss.icon_h0}>
+                Home
               </a>
-              <IoIosHelpCircle
-                onClick={() => navigate("/add")}
-                className={scss.icon_h3}
-              />
+
+              <a className={scss.icon_h2}>Nature</a>
+              {user ? (
+                user.email === "nasnur399@gmail.com" ||
+                user.email === "karimovarlen69@gmail.com" ? (
+                  <IoIosHelpCircle
+                    onClick={() => navigate("/add")}
+                    className={scss.icon_h3}
+                  />
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )}
               {user ? (
                 <>
                   <IconButton
@@ -52,7 +58,7 @@ const Header = () => {
                     aria-controls="menu-appbar"
                     aria-haspopup="true"
                     color="inherit"
-                    onClick={handleMenu} 
+                    onClick={handleMenu}
                   >
                     <img
                       className={scss.photo}

@@ -1,3 +1,4 @@
+// AddTravel.module.scss
 .admin {
   padding-block: 100px;
 }
@@ -68,7 +69,6 @@
   position: relative;
 
   &::before {
-    content: "Добавить новый тур";
     position: absolute;
     top: -40px;
     left: 0;
@@ -118,11 +118,6 @@
     button {
       padding: 12px 16px;
       font-size: 14px;
-    }
-
-    &::before {
-      font-size: 18px;
-      top: -30px;
     }
   }
 }

@@ -2,12 +2,13 @@ import scss from "./AddTravel.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useData } from "../../../context/TravelContext";
 import { useState } from "react";
+
 const initialValues = {
   image: "",
   person: "",
   price: "",
   location: "",
-  time:'',
+  time: "",
   conditions: "",
 };
 const AddTravel = () => {
@@ -37,55 +38,71 @@ const AddTravel = () => {
   }
 
   return (
-    <div id={scss.AddTravel}>
-      <div className="container">
-        <div className={scss.content}>
-          <div className={scss.blocks}>
-            <div className={scss.block}>
-              <input
-                onChange={(e) => handleInp(e)}
-                type="text"
-                placeholder="image"
-                name="image"
-              />
-              <input
-                onChange={(e) => handleInp(e)}
-                type="text"
-                placeholder="person"
-                name="person"
-              />
-              <input
-                onChange={(e) => handleInp(e)}
-                type="text"
-                placeholder="price"
-                name="price"
-              />
-              <input
-                onChange={(e) => handleInp(e)}
-                type="text"
-                placeholder="location"
-                name="location"
-              />
-              <input
-                onChange={(e) => handleInp(e)}
-                type="text"
-                placeholder="time"
-                name="time"
-              />
-               <input
-                onChange={(e) => handleInp(e)}
-                type="text"
-                placeholder="condition"
-                name="condition"
-              />
-              {/* <Link to="/"> */}
-                <button onClick={handleSubmit}>create</button>
-              {/* </Link> */}
-            </div>
-          </div>
+    <section className={scss.admin}>
+      <div className={scss.block}>
+        <div className={scss.inputGroup}>
+          <label>Изображение тура</label>
+          <input
+            onChange={(e) => handleInp(e)}
+            type="text"
+            placeholder="URL изображения"
+            name="image"
+          />
         </div>
+
+        <div className={scss.inputGroup}>
+          <label>Количество человек</label>
+          <input
+            onChange={(e) => handleInp(e)}
+            type="text"
+            placeholder="Количество человек"
+            name="person"
+          />
+        </div>
+
+        <div className={scss.inputGroup}>
+          <label>Стоимость</label>
+          <input
+            onChange={(e) => handleInp(e)}
+            type="text"
+            placeholder="Стоимость"
+            name="price"
+          />
+        </div>
+
+        <div className={scss.inputGroup}>
+          <label>Место назначения</label>
+          <input
+            onChange={(e) => handleInp(e)}
+            type="text"
+            placeholder="Место назначения"
+            name="location"
+          />
+        </div>
+
+        <div className={scss.inputGroup}>
+          <label>Продолжительность</label>
+          <input
+            onChange={(e) => handleInp(e)}
+            type="text"
+            placeholder="Продолжительность"
+            name="time"
+          />
+        </div>
+
+        <div className={scss.inputGroup}>
+          <label>Условия</label>
+          <input
+            onChange={(e) => handleInp(e)}
+            type="text"
+            placeholder="Условия"
+            name="condition"
+          />
+        </div>
+
+        <button onClick={handleSubmit}>Создать тур</button>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -9,8 +9,7 @@ import {
   FaTwitter,
   FaTelegram,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -72,15 +71,11 @@ const Footer = () => {
             </a>
           </div>
           <div className="footer__newsletter">
-            <Link to={'/coment'} >
+            <Link to={"/coment"}>
               <h4 className="footer__subtitle">Оставьте отзыв</h4>
             </Link>
             <div className="footer__form">
-              <input
-                type="email"
-                placeholder="Ваш email"
-                className="footer__input"
-              />
+           <Link to="/feed">   <h3>Отзывы </h3></Link>
               <button className="footer__button">→</button>
             </div>
           </div>
